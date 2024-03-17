@@ -1,0 +1,184 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #1b1b32;
+    color: #f5f6f7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    display: flex;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+    
+    color: #224490;
+    background-color: #aaa;
+    border: solid 3pt rgb(111, 15, 221);
+}
+
+.punteggio {
+    flex: 20%;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 45% 35% 20%;
+
+    height: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.punteggio > h2 {
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+}
+
+#punteggio_attuale {
+    font-size: 40px;
+}
+
+#torna_indietro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    background-color: #1b1b32;
+
+    border: solid 5px #cccccc;
+}
+
+.main {
+    flex: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+
+    height: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+img {
+    flex: 30%;
+    margin-bottom: 10px;
+    
+    /*coloro di grigio lo sfondo del png*/
+    mix-blend-mode: multiply;
+    background-color: #f1f1f1;
+}
+
+#input {
+    flex: 30%;
+}
+
+#parola, #esito{
+    flex: 40%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 0 50px 0;
+    font-size: 50px;
+    max-width: 100%;
+
+}
+
+#esito {
+    font-size: 100px;
+}
+
+.classifica {
+    flex: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #f1f1f1;
+    padding: 10px;
+    height: 100%;
+}
+
+input {
+    width: 80%;
+    height: 20%;
+    padding: 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.classifica table{
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+
+    margin: 0 20px 0 0;
+}   
+
+.classifica tbody {
+    background-color: pink;
+}
+
+.classifica td, .classifica th {
+    border: solid 1pt #1b1b32;
+    height: 45px;
+    text-align: center;
+
+}
+
+#parola table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#parola tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#parola td{
+    padding: 0;
+    border: solid 1px black;
+    height: 60px;
+    margin: 1px;
+    aspect-ratio: 1/1;
+    
+    color: #1b1b32;
+    background-color: rgba(70, 125, 197, 0.671);
+}
+
+.spaziatura {
+    visibility: hidden;
+}
+
+a, a:visited {
+    color: white;
+    text-decoration: none;
+}

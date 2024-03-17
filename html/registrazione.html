@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it-it">
+  <head>
+    <meta charset="utf-8"> 
+    <link rel="shortcut icon" type="image/x-icon" href="../icon/logo.png">
+    <title>Indovina il logo!</title>
+    <link rel="stylesheet" href="../css/login.css" type="text/css" media="screen">
+  </head>
+  <body>
+    <h1>Benvenuto in indovina il logo</h1>
+    <p>Registrati per iniziare a giocare</p>
+    <form method="post" action='php/submit_login.php'>
+      <fieldset>
+        <label for="username">Username: <input id="username" name="username" type="text" required /></label>
+        <label for="nome">Nome: <input id="nome" name="nome" type="text" required /></label>
+        <label for="cognome">Cognome: <input id="cognome" name="cognome" type="text" required /></label>
+        <label for="email">Email: <input id="email" name="email" type="email" required /></label>
+        <label for="password">Password: <input id="password" name="password" type="password" required /></label>
+      </fieldset>
+      <input type="submit" value="Submit" />
+    </form>
+    <a href="login.html">Se hai un account effettua il login</a>
+  </body>
+</html>
