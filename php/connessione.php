@@ -1,19 +1,17 @@
 <?php
-// Definisci i parametri di connessione al database
-$db_host = "localhost"; // Nome host del server MySQL
-$db_username = "root"; // Nome utente del database
-$db_password = ""; // Password del database
-$db_name = "calzolari_643496"; // Nome del database
+require_once "config.php";
 
-// Crea la connessione al database
-$conn = new mysqli($db_host, $db_username, NULL,  $db_name);
-
-// Controlla se la connessione è fallita
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
-    echo "Connessione fallita!";
-}
-else{
+function connettitiAlDatabase(){
+    
+    // Crea la connessione al database
+    $connessione = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD,  DB_NAME);
+        
+    // Controlla se la connessione è fallita
+    if(mysqli_connect_errno()){
+        die(mysqli_connect_error());
+    }
+        
+    return $connessione;
 }
 
 ?>

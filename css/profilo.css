@@ -10,8 +10,8 @@ body {
     height: 100vh;
     margin: 0;
 
-    min-width: 900px;
-    min-height: 657px;
+    min-width: 570px;
+    min-height: 648px;
 
     background-color: #1b1b32;
     color: #f5f6f7;
@@ -44,7 +44,7 @@ h1 {
     margin: 0px 5px 0px 0px;
 
     text-align: center;
-    
+
     border: solid 3px #0b3e9c;
     background-color: darkblue;
 }
@@ -56,43 +56,101 @@ h1 {
     z-index: 1;
 }
 
-.container-regole{
+.container-dati, .popup{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 80%;
+
     height: 90%;
     margin: 20px;
-}
 
-.flex-regoleGenerali {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-
-    height: 70%;
-    background-color: #224490;
-    padding: 20px;
     border: solid 5px #11295a;
+    background-color: #224490;
 }
 
-.grid-container{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
-
-    height: 30%;
+.popup{
+    display: none;
 }
 
-.grid-container > div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+.container-dati > *{
+    
     text-align: center;
 
     background-color: #224490;
-    padding: 10px;
-    border: solid 5px #11295a;
+    margin: 0;
+    font-size: 20px;
+}
 
+.container-dati > h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #224490;
+    font-size: 50px;
+}
+
+.container-dati > div{
+    display: grid;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    align-content: center;
+}
+
+.container-dati > div > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d2863;
+    margin: 10px 50px 10px 50px;
+}
+
+.popup > *{
+    
+    text-align: center;
+
+    background-color: #224490;
+    margin: 0;
+    font-size: 20px;
+}
+
+.popup > h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #224490;
+    font-size: 50px;
+}
+
+.popup > form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+    align-content: center;
+}
+
+.popup > form > label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d2863;
+    margin: 10px 50px 10px 50px;
+}
+.popup > form > button, .popup > form > input{
+    margin: 10px 50px 10px 50px;
+    font-size: 40px;
+}
+
+.item1 {
+    grid-column: 1/3;
+}
+.item2 {
+    grid-column: 1/3;
+}
+.item3{
+    grid-column: 1/3;
 }
 
 .navbar-item > a, .navbar-item > a:visited {
@@ -104,7 +162,11 @@ h1 {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    
+
     width: 100%;
     height: 100%;
+}
+
+button, input{
+    margin: 5px;
 }

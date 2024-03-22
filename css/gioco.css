@@ -5,8 +5,12 @@ body{
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+
+    min-width: 1185px;
+    min-height: 622px;
+
     margin: 0;
     background-color: #1b1b32;
     color: #f5f6f7;
@@ -20,8 +24,8 @@ body{
     justify-content: center;
     
     color: #224490;
-    background-color: #aaa;
-    border: solid 3pt rgb(111, 15, 221);
+    background-color: #f1f1f1;
+    border: solid 3pt #11295a;
 }
 
 .punteggio {
@@ -29,14 +33,21 @@ body{
 
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 45% 35% 20%;
+    grid-template-rows: 80% 20%;
 
     height: 100%;
     background-color: #f1f1f1;
     text-align: center;
 }
+.punteggio > div {
+    margin: 0;
 
-.punteggio > h2 {
+    display: grid;
+    grid-template-rows: 57% 43%;
+
+}
+
+.punteggio h2 {
     margin: 0;
 
     display: flex;
@@ -60,7 +71,9 @@ body{
 
     background-color: #1b1b32;
 
-    border: solid 5px #cccccc;
+    border: solid 5px #11295a;
+    border-bottom: 0px;
+    border-left: 0px;
 }
 
 .main {
@@ -131,6 +144,11 @@ h1 {
     text-align: center;
 }
 
+.classifica caption {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 40px;
+}
 .classifica table{
     border-collapse: collapse;
     width: 100%;
@@ -141,13 +159,14 @@ h1 {
 }   
 
 .classifica tbody {
-    background-color: pink;
+    background-color: rgba(70, 125, 197, 0.671);
 }
 
 .classifica td, .classifica th {
-    border: solid 1pt #1b1b32;
+    border: solid 2px black;
     height: 45px;
     text-align: center;
+    color: #1b1b32;
 
 }
 
@@ -181,4 +200,54 @@ h1 {
 a, a:visited {
     color: white;
     text-decoration: none;
+}
+
+
+/* Fine partita */
+.risultati {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.risultati > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    
+    background-color: #224490;
+    padding: 50px;
+    border: solid 5px #11295a;
+}
+
+.risultati  h2 {
+    font-size: 50px;
+    background-color: #224490;
+
+    width: 100%;
+    height: 100%;
+}
+
+.risultati p{
+    background-color: #224490;
+
+    font-size: 25px;
+
+    width: 100%;
+    height: 100%;
+    margin: 2px;
+}
+
+.risultati > div > div{
+    background-color: #224490;
+
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
 }

@@ -27,6 +27,7 @@ document.getElementById("risposta").addEventListener("keydown", function(event) 
         console.log("Nome del logo:", soluzione);
 
         let risposta = document.getElementById("risposta").value;
+        risposta = risposta.toLowerCase();
 
         // pulisco la risposta
         document.getElementById("risposta").value = "";
@@ -46,6 +47,25 @@ document.getElementById("risposta").addEventListener("keydown", function(event) 
         
     }
 
+});
+
+document.getElementById("torna_indietro").addEventListener("click", function(event){
+    event.preventDefault();
+
+    confirm("Vuoi terminare la partita?");
+
+    // Recap all'utente
+    mostraPunteggi();
+
+    const punteggio = document.getElementById("punteggio_attuale").textContent;
+    // Salvo i punteggi
+    const data = {
+        punteggio: punteggio
+    };
+    const req = new XMLHttpRequest();
+    req.open("POST", "../php/salvaPunteggio.php");
+    req.send(JSON.stringify(data));
+    
 });
 
 function alzaPunteggio(){
@@ -72,9 +92,9 @@ function cambiaLogo(){
     // Devo scegliere un immagine random da mostrare
     let indiceRandom = Math.floor(Math.random() * fileImmagini.length);
     let logoRandom = fileImmagini[indiceRandom];
-
+    
     document.getElementById("logo").src = "../img/" + logoRandom;
-
+    
     // Tolgo cose in più al nome per la sezione degli aiuti
     logoRandom = logoRandom.split('_');
     let nomeLogo = logoRandom[0];
@@ -82,20 +102,19 @@ function cambiaLogo(){
     
     let parola = document.getElementById("parola");
     parola.style.display = "flex";
-
+    
     let caselle = document.getElementById("caselle");
-    console.log(caselle.firstChild);
     
     // Pulisco le caselle
     while (caselle.firstChild) {
         caselle.removeChild(caselle.firstChild);
     }
-
+    
     // Metto la nuova
     for(let i = 0; i < nomeLogo.length; i++){
         let nuovaCasella = document.createElement("td");
         if(nomeLogo[i] != " "){
-            nuovaCasella.textContent = nomeLogo[i];
+            // nuovaCasella.textContent = nomeLogo[i];
             caselle.appendChild(nuovaCasella);
         }
         else{
@@ -104,6 +123,43 @@ function cambiaLogo(){
             caselle.appendChild(spazio);
         }
     }
+}
+function aggiungiLettera(){
+    let urlLogo = document.getElementById("logo").src;
+
+    
+    let logoCur = urlLogo.substring(urlLogo.lastIndexOf('/') + 1);
+    logoCur = logoCur.split('_');
+    let nomeLogo = logoCur[0];
+    nomeLogo = nomeLogo.replace(/-/g, " ");
+    
+    let indiceRandom;
+    let caselle = document.getElementById("caselle");
+    let scatola;
+
+    // per impedire starvation
+    let conto = 0;
+
+    while(true){
+        indiceRandom = Math.floor(Math.random() * nomeLogo.length);
+        scatola = caselle.cells[indiceRandom];
+
+        // Per evitare la starvation, non può essere troppo basso perché potrei avere sfortuna
+        // e beccare più volte di fila una casella piena o con lo spazio nel nome
+        conto++;
+        if(conto > 20){
+            console.error("Hai finito gli aiuti!");
+            return;
+        }
+        // Se ho già rivelato quella lettera o ho beccato uno spazio nel nome
+        if(scatola.textContent != "" || nomeLogo[indiceRandom] == " "){
+            continue;
+        } else {
+            break;
+        }
+    }
+    
+    scatola.textContent = nomeLogo[indiceRandom];
 }
 
 function mostraCorretto(){
@@ -130,6 +186,16 @@ function mostraSbagliato(){
     setTimeout(function(){
         esito.style.display = "none"
         parola.style.display = "flex"
+        aggiungiLettera();
     }, 2000);
 
+}
+
+function mostraPunteggi(){
+    document.getElementById("risultatofinale").textContent = document.getElementById("punteggio_attuale").textContent;
+    document.getElementById("container").style.display = "none";
+    document.getElementById("risultati").style.display = "flex";
+    setTimeout(function(){
+        location.href = "home.php";
+    }, 5000);
 }
