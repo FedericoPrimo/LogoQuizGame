@@ -1,20 +1,15 @@
 <?php
-    require_once 'config.php';
+    require_once 'connessione.php';
+
     session_start();
-    $username = "f.calzolari1"; //$_SESSION['username'];
+    $username = $_SESSION['username'];
 
     $data = json_decode(file_get_contents('php://input'), true);
 
     $oldPsw = $data['oldPsw'];
     $newPsw = $data['newPsw'];
 
-    // Crea la connessione al database
-    $conn = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD,  DB_NAME);
-        
-    // Controlla se la connessione è fallita
-    if(mysqli_connect_errno()){
-        die(mysqli_connect_error());
-    }
+    $conn = connettitiAlDatabase();
 
     $sql = "SELECT * FROM utenti WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);

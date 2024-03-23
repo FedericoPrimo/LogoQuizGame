@@ -1,17 +1,12 @@
 <?php
-    require_once 'config.php';
+    require_once 'connessione.php';
 
     session_start();
 
     // Prelevo i dati
     $data = json_decode(file_get_contents('php://input'), true);
 
-    $conn = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD,  DB_NAME);
-        
-    // Controlla se la connessione è fallita
-    if(mysqli_connect_errno()){
-        die(mysqli_connect_error());
-    }
+    $conn = connettitiAlDatabase();
 
     $username = $_SESSION['username'];
     $sql = "SELECT * FROM `classifica_gioco_classico` WHERE username = '$username'";

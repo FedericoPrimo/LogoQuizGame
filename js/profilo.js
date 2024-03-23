@@ -33,6 +33,9 @@ document.getElementById("cambioPassword").addEventListener("submit", function(ev
         }else{
             alert(risposta.error);
         }
+        document.getElementById("oldPsw").value = "";
+        document.getElementById("newPsw").value = "";
+        document.getElementById("repeatPsw").value = "";
     }
     req.send(JSON.stringify(data));
 })

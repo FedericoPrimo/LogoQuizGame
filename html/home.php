@@ -17,7 +17,7 @@
         <h1>Benvenuto <?php echo $_SESSION['nome'] ?> in indovina il logo</h1>
         <div class="flex-navbar">
             <div class="navbar-item"><a href="profilo.php" >Profilo</a></div>
-            <div class="navbar-item"><a href="#" >I miei risultati</a></div>
+            <div class="navbar-item"><a href="risultati.php" >I miei risultati</a></div>
             <div class="navbar-item"><a href="regole-sito.php" >Come funziona il sito?</a></div>
             <div class="navbar-item"><a href="login.html" id ="logout">Logout</a></div>
         </div>
