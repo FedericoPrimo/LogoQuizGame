@@ -71,6 +71,7 @@ h1 {
     background-color: #224490;
     padding: 20px;
     border: solid 5px #11295a;
+    border-bottom: 0;
 }
 
 .grid-container{
@@ -93,6 +94,13 @@ h1 {
     padding: 10px;
     border: solid 5px #11295a;
 
+}
+
+.grid-container > div:nth-child(1){
+    border-right: solid 2.5px #11295a;
+}
+.grid-container > div:nth-child(2){
+    border-left: solid 2.5px #11295a;
 }
 
 .navbar-item > a, .navbar-item > a:visited {

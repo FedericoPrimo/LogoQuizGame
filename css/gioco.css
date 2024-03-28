@@ -144,6 +144,7 @@ img {
     flex: 20%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -183,7 +184,7 @@ h1 {
 }
 
 .classifica td, .classifica th {
-    border: solid 2px black;
+    border: solid 0.5px #11295a;
     height: 45px;
     text-align: center;
     color: #1b1b32;

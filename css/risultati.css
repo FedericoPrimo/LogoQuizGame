@@ -108,7 +108,7 @@ tbody {
     background-color: rgba(70, 125, 197, 0.671);
 }
 td, th {
-    border: solid 2px #11295a;
+    border: solid 0.5px #11295a;
     width: 20%;
     height: 30px;
     text-align: center;
