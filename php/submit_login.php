@@ -34,7 +34,7 @@
     }
 
     // Creo la sessione
-    require_once "iniziaSessione.php";
+    session_start();
     $_SESSION['username'] = $row['username'];
     $_SESSION['nome'] = $row['nome'];
     $_SESSION['cognome'] = $row['cognome'];
