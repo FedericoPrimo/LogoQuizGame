@@ -22,9 +22,9 @@
             <div class="navbar-item"><a href="login.html" id ="logout">Logout</a></div>
         </div>
         <div class="grid-container">
-            <div class="container-item"><a href="#" >Prova a tempo</a></div>
-            <div class="container-item"><a href="gioco.php">Gioco classico</a></div>
-            <div class="container-item"><a href="#" >La pratica rende perfetti</a></div>
+            <div id="primo-gioco" class="container-item"><a href="prova_a_tempo.php" >Prova a tempo</a></div>
+            <div id="secondo-gioco" class="container-item"><a href="gioco.php">Gioco classico</a></div>
+            <div id="terzo-gioco" class="container-item"><a href="la_pratica_rende_perfetti.php" >La pratica rende perfetti</a></div>
         </div>
         <script src="../js/home.js"></script>
     </body>

@@ -28,6 +28,26 @@ body{
     border: solid 3pt #11295a;
 }
 
+/* ---------------------- */
+/* Serve per prova a tempo */
+#punteggio_prova_a_tempo {
+    grid-template-rows: 20% 60% 20%;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: solid 5px #11295a;
+    margin: 20px;
+    
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ---------------------- */
+
 .punteggio {
     flex: 20%;
 

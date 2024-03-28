@@ -9,8 +9,15 @@
 
     $conn = connettitiAlDatabase();
 
-    $sql = "SELECT * FROM utenti WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM utenti WHERE email = ?";
+    if($statement = mysqli_prepare($conn, $sql)){
+        mysqli_stmt_bind_param($statement, 's', $email);
+
+        mysqli_stmt_execute($statement);
+        $result = mysqli_stmt_get_result($statement);
+    } else {
+        die();
+    }
     
     if (mysqli_num_rows($result) == 0) {
         echo json_encode(['error' => 'Credenziali errate']);

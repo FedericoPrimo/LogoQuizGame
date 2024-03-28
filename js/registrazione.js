@@ -1,3 +1,4 @@
+// Controllo se il server di back-end è online
 document.addEventListener("DOMContentLoaded", function(){
     const req = new XMLHttpRequest();
     req.open("POST", "../php/connessione.php");
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     req.send();
 });
 
+// Gestisco la richiesta di registrazione
 document.getElementById("registrazione").addEventListener("submit", function(event){
     event.preventDefault();
 
@@ -35,31 +37,34 @@ document.getElementById("registrazione").addEventListener("submit", function(eve
         password: password
     };
 
-    // Handle response
     req.onload = function() {
         if (req.status === 200) {
             const response = JSON.parse(req.responseText);
 
             if(response.message == "successo"){
                 console.log("Registrato con successo");
-                alert("Registrazione effettuata!\nLoggati per accedere");
+                confirm("Registrazione effettuata!\nLoggati per accedere");
             } else{
                 errore = response.error;
-                console.error(errore);
 
                 // Devo vedere se l'email è duplicata o username già esistente
-                errore = errore.indexOf("email_unica");
-                if(errore == -1){
-                    alert("Username già esistente");
+                let duplicateEmail = errore.indexOf("email_unica");
+                let duplicateUsr = errore.indexOf("PRIMARY");
+                if(duplicateEmail != -1){
+                    // Nella stringa è presente "email_unica", quindi già email già presente
+                    confirm("Ti sei già registrato con questa email");
+                } else if(duplicateUsr != -1){
+                    // Nella stringa è presente "PRIMARY", quindi già username già presente
+                    confirm("Username già scelto da un altro utente");
                 } else {
-                    alert("Ti sei già registrato con questa email");
+                    // Altri errori
+                    confirm(response.error);
                 }
 
             }
         }
     };
 
-    // Send data
     req.send(JSON.stringify(data));
 
 });

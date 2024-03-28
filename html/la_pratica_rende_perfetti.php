@@ -15,7 +15,7 @@
     </head>
     <body>
         <div>
-            <h1>Gioco classico</h1>
+            <h1>La pratica rende perfetti</h1>
         </div>
         <div class="container" id="container">
             <div class="punteggio">
@@ -52,7 +52,7 @@
                         </tr>
                         <?php
                             // Devo riempire la classifica
-                            require_once "../php/fetch_gioco_classico.php";
+                            require_once "../php/fetch_la_pratica_rende_perfetti.php";
 
                             for($i = 1; $i <= 10; $i++) {
                                 $row = $result->fetch_assoc();
@@ -65,7 +65,7 @@
         </div>
         <div id="risultati" class="risultati">
             <div>
-                <h2>Fine partita</h2>
+                <h2>Hai sbagliato!</h2>
                 <p>Punteggio finale:</p>
                 <div id="risultatofinale"></div> 
             </div>

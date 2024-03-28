@@ -1,3 +1,4 @@
+// Devo chiudere la sessione comunicandolo al server
 document.getElementById("logout").addEventListener("click", function(event){
     event.preventDefault();
     if(confirm("Sei sicuro di voler fare logout?")){

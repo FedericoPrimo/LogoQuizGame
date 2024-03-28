@@ -1,3 +1,4 @@
+// Controllo se il server di back-end è online
 document.addEventListener("DOMContentLoaded", function(){   
     const req = new XMLHttpRequest();
     req.open("POST", "../php/connessione.php");
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     req.send();
 });
 
+// Vado ad effettuare la richiesta di login
 document.getElementById("login").addEventListener("submit", function(event){
     event.preventDefault();
 
@@ -29,7 +31,6 @@ document.getElementById("login").addEventListener("submit", function(event){
         password: password
     };
 
-    // Handle response
     req.onload = function() {
         if (req.status === 200) {
             const response = JSON.parse(req.responseText);
@@ -37,12 +38,11 @@ document.getElementById("login").addEventListener("submit", function(event){
                 console.log("Loggato con successo e sessione creata");
                 location.href = "../html/home.php";
             } else{
-                console.log("Credenziali non corrette");
+                confirm("Credenziali non corrette, riprova");
             }
         }
     };
 
-    // Send data
     req.send(JSON.stringify(data));
 
 });

@@ -15,10 +15,11 @@
     </head>
     <body>
         <div>
-            <h1>Gioco classico</h1>
+            <h1>Prova a tempo</h1>
         </div>
         <div class="container" id="container">
-            <div class="punteggio">
+            <div class="punteggio" id="punteggio_prova_a_tempo">
+                <div id="timer">60 secondi rimanenti</div>
                 <div id="grid-punteggio">
                     <h2>Punteggio attuale</h2>
                     <div id="punteggio_attuale">
@@ -52,7 +53,7 @@
                         </tr>
                         <?php
                             // Devo riempire la classifica
-                            require_once "../php/fetch_gioco_classico.php";
+                            require_once "../php/fetch_prova_a_tempo.php";
 
                             for($i = 1; $i <= 10; $i++) {
                                 $row = $result->fetch_assoc();
@@ -65,7 +66,7 @@
         </div>
         <div id="risultati" class="risultati">
             <div>
-                <h2>Fine partita</h2>
+                <h2>Tempo scaduto!</h2>
                 <p>Punteggio finale:</p>
                 <div id="risultatofinale"></div> 
             </div>

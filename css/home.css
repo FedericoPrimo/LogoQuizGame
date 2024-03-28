@@ -82,16 +82,15 @@ h1 {
     text-align: center;
 
     background-color: #224490;
-    padding: 20px;
+    
     border: solid 5px #11295a;
-    font-size: 50px;
-
+    font-size: 40px;
 }
 
 .grid-container > div:hover {
     height: 105%;
     width: 105%;
-    font-size: 60px;
+    font-size: 48px;
     z-index: 1;
 }
 
@@ -121,4 +120,27 @@ h1 {
 
     width: 100%;
     height: 100%;
+    padding: 20px;
+    background-color: #22459075;
+}
+
+#primo-gioco{
+    background-image: url("../icon/cronometro.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#secondo-gioco {
+    background-image: url("../icon/lente.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#terzo-gioco {
+    background-image: url("../icon/medaglia.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
